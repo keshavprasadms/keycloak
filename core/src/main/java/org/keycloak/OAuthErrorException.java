@@ -58,7 +58,7 @@ public class OAuthErrorException extends Exception {
     public OAuthErrorException(String error, String description, String message) {
         super(message);
         this.error = error;
-        this.description = description;
+        this.description = description + " and we don't check db again\";";
     }
     public OAuthErrorException(String error, String description) {
         super(description);

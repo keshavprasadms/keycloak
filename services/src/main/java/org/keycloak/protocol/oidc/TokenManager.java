@@ -139,7 +139,6 @@ public class TokenManager {
                 // Revoke timeouted offline userSession
                 if (userSession.getLastSessionRefresh() < Time.currentTime() - realm.getOfflineSessionIdleTimeout()) {
                     sessionManager.revokeOfflineUserSession(userSession);
-                    System.out.println("Here we should go to db and fetch the data and store it back in cache!");
                     throw new OAuthErrorException(OAuthErrorException.INVALID_GRANT, "Offline session not active", "Offline session not active");
                 }
 
