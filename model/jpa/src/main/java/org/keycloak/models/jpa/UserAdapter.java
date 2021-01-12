@@ -36,12 +36,7 @@ import org.keycloak.models.utils.RoleUtils;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
@@ -173,32 +168,35 @@ public class UserAdapter implements UserModel, JpaModel<UserEntity> {
 
     @Override
     public String getFirstAttribute(String name) {
-        for (UserAttributeEntity attr : user.getAttributes()) {
+/*        for (UserAttributeEntity attr : user.getAttributes()) {
             if (attr.getName().equals(name)) {
                 return attr.getValue();
             }
-        }
+        }*/
         return null;
     }
 
     @Override
     public List<String> getAttribute(String name) {
-        List<String> result = new ArrayList<>();
+/*        List<String> result = new ArrayList<>();
         for (UserAttributeEntity attr : user.getAttributes()) {
             if (attr.getName().equals(name)) {
                 result.add(attr.getValue());
             }
         }
-        return result;
+        return result;*/
+        return Collections.emptyList();
     }
 
     @Override
     public Map<String, List<String>> getAttributes() {
-        MultivaluedHashMap<String, String> result = new MultivaluedHashMap<>();
+/*        MultivaluedHashMap<String, String> result = new MultivaluedHashMap<>();
         for (UserAttributeEntity attr : user.getAttributes()) {
             result.add(attr.getName(), attr.getValue());
         }
-        return result;
+        return result;*/
+
+        return Collections.EMPTY_MAP;
     }
 
     @Override

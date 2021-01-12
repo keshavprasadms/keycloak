@@ -134,6 +134,25 @@ public class TokenManager {
 
             UserSessionManager sessionManager = new UserSessionManager(session);
             userSession = sessionManager.findOfflineUserSession(realm, oldToken.getSessionState());
+            logger.info("User Session Object Attributes");
+            logger.info(userSession.getAuthenticatedClientSessions());
+            logger.info(userSession.getAuthMethod());
+            logger.info(userSession.getBrokerSessionId());
+            logger.info(userSession.getBrokerUserId());
+            logger.info(userSession.getId());
+            logger.info(userSession.getIpAddress());
+            logger.info(userSession.getLastSessionRefresh());
+            logger.info(userSession.getLoginUsername());
+            logger.info(userSession.getNotes());
+            logger.info(userSession.getRealm());
+            logger.info(userSession.getStarted());
+            logger.info(userSession.getState());
+            logger.info(userSession.getUser());
+            logger.info(userSession.getClass());
+            logger.info(userSession.getClass().getCanonicalName());
+            logger.info(userSession.getLastSessionRefresh() + ", " + Time.currentTime() + ", " + realm.getOfflineSessionIdleTimeout());
+            logger.info(userSession.getLastSessionRefresh() < Time.currentTime() - realm.getOfflineSessionIdleTimeout());
+
             if (userSession != null) {
 
                 // Revoke timeouted offline userSession
